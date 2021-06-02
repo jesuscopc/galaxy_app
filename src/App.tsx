@@ -1,9 +1,10 @@
 import React from 'react';
+import GalaxyApp from './root/GalaxyApp';
 import './index.scss';
 
 const App = (): React.ReactElement => {
   return (
-    <h1>My galaxy App</h1>
+    <GalaxyApp />
   );
 };
 
