@@ -1,8 +1,9 @@
 import React from 'react';
+import './index.css';
 
 const Spacecraft = () => {
   return (
-    <div>
+    <div className="container">
       Spacecraft
     </div>
   )

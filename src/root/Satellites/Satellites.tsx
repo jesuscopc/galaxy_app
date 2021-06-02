@@ -2,7 +2,7 @@ import React from 'react'
 
 const Satellites = () => {
   return (
-    <div>
+    <div className="container">
       Satellites
     </div>
   )

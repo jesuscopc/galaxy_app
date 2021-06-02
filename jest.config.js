@@ -21,7 +21,7 @@ module.exports = {
     ],
     "setupFiles": ['<rootDir>/src/setupTests.js'],
     "moduleNameMapper":{
-      "\\.(scss|css)$": "<rootDir>/styleMock.js"
+      "\\.(scss|css|gif|jpg)$": "<rootDir>/styleMock.js"
     },
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",

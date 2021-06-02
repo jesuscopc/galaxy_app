@@ -1,0 +1,10 @@
+.spacecraft {
+  display: flex;
+  margin: auto;
+}
+
+.satellites {
+  margin: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
