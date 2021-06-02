@@ -8,9 +8,11 @@ interface IResponse {
 export const PostRequest = async (path: string, data: unknown)
 : Promise<IResponse | null> => {
   const url = `${API_URL}/${path}`;
-  // const headers = new Headers();
+  const headers = new Headers();
+  headers.append('content-type', 'application/json');
   const response = await fetch(url, {
     method: 'POST',
+    headers,
     body: JSON.stringify(data),
   });
   if (response.ok) {
