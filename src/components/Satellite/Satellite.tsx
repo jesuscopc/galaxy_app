@@ -1,23 +1,19 @@
-import { ISatellite } from 'interfaces';
 import React, { useState } from 'react';
+import { ISatellite } from '../../interfaces';
 
-const Satellite = ({ name, x, y, image}: ISatellite) => {
+interface ISatelliteExt extends ISatellite {
+  onGetLocation: Function;
+  onGetMessage: Function;
+}
 
-  const [distance, setDistance] = useState<string>()
+const Satellite = ({ name, image, distance, onGetLocation, onGetMessage }: ISatelliteExt) => {
 
-  const getLocation = () => {
-    alert('get location clicked');
-  }
-
-  const getMessage = () => {
-    alert('get Message clicked');
-  }
+  const [distanceValue, setDistanceValue] = useState<number>();
 
   return (
     <div className="satellite p-2">
       <img src={image} alt={name} width="100"/>
-      <label>({x},</label>
-      <label>{y})</label>
+      <span>{name} distance: {distance}</span>
       <div className="row">
         <div className="col-md-12">
           <label htmlFor="validationCustom01" className="form-label">Distancia</label>
@@ -25,23 +21,31 @@ const Satellite = ({ name, x, y, image}: ISatellite) => {
             type="number"
             placeholder="100"
             className="form-control"
-            value={distance}
-            onChange={e => setDistance(e.currentTarget.value)}
+            value={distanceValue}
+            onChange={e => setDistanceValue(Number(e.currentTarget.value))}
             required />
         </div>
         <div className="col-md-6 mt-2">
           <button 
-            className="btn btn-outline-info fw-bold"
-            onClick={getLocation}
-            >Get Location</button>
+            type="button" 
+            className="btn btn-outline-info"
+            data-bs-toggle="modal" 
+            data-bs-target="#exampleModal"
+            onClick={() => onGetLocation(distanceValue)}>
+            get Location
+          </button>
         </div>
         <div className="col-md-6 mt-2">
-          <button 
+          <button
+            type="button"
             className="btn btn-outline-success fw-bold"
-            onClick={getMessage}
+            data-bs-toggle="modal" 
+            data-bs-target="#exampleModal"
+            onClick={() => onGetMessage(name)}
             >Get message</button>
         </div>
       </div>
+      
     </div>
   )
 }
