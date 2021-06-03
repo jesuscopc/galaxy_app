@@ -6,7 +6,7 @@ interface ISatelliteExt extends ISatellite {
   onGetMessage: Function;
 }
 
-const Satellite = ({ name, image, distance, onGetLocation, onGetMessage }: ISatelliteExt) => {
+const Satellite = ({ name, image, distance, onGetLocation, onGetMessage }: ISatelliteExt): React.ReactElement => {
 
   const [distanceValue, setDistanceValue] = useState<number>();
 

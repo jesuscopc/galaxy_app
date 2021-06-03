@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Satellites = () => {
+const Satellites = (): React.ReactElement => {
   return (
     <div className="container">
       Satellites

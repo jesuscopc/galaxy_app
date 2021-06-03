@@ -2,7 +2,7 @@ import React from 'react';
 import { GalaxyService } from '../../services';
 import './index.css';
 
-const Spacecraft = () => {
+const Spacecraft = (): React.ReactElement => {
   const data = {
     satellites: [{
         name: 'kenobi',

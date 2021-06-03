@@ -5,7 +5,7 @@ interface IModalResult extends ISatellite {
   infoType: 'coordenate' | 'message';
 }
 
-const ModalResults = ({x,y, name, infoType, message }: IModalResult) => {
+const ModalResults = ({x,y, name, infoType, message }: IModalResult): React.ReactElement => {
   return (
     <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog">

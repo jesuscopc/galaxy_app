@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import star from '../../assets/images/star-fox.gif';
 import './index.css';
 
-const Header = () => {
+const Header = (): React.ReactElement => {
   return (
     <div className="wrapp__header">
       <h1 className="title">Galaxy App</h1>
