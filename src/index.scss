@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Roboto";
+  font-weight: bold;
+  src: url('./assets/fonts/Roboto-Bold.woff') format('woff2');
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: normal;
+  src: url('./assets/fonts/Roboto-Light.woff') format('woff2');
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 100;
+  src: url('./assets/fonts/Roboto-Thin.woff') format('woff2');
+}
+
+body {
+  font-family: 'Roboto', Courier, monospace;
+}
+
+.container {
+  padding: 2rem;
+}
