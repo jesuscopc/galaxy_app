@@ -5,7 +5,8 @@ import { SATELLITES } from '../../constants';
 
 describe('Suit test - Satellite Component', () => {
   test('its defined', () => {
-    const wrapper =  shallow(<Satellite {...SATELLITES[0]} />)
+
+    const wrapper =  shallow(<Satellite onGetLocation={() => {}} onGetMessage={() =>{}} {...SATELLITES[0]} />)
     expect(wrapper.find('.satellite')).toBeTruthy();
   })
   

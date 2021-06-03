@@ -23,10 +23,11 @@ const Satellite = ({ name, image, distance, onGetLocation, onGetMessage }: ISate
             className="form-control"
             value={distanceValue}
             onChange={e => setDistanceValue(Number(e.currentTarget.value))}
-            required />
+            />
         </div>
         <div className="col-md-6 mt-2">
-          <button 
+          <button
+            id="getLocationButton"
             type="button" 
             className="btn btn-outline-info"
             data-bs-toggle="modal" 
@@ -37,6 +38,7 @@ const Satellite = ({ name, image, distance, onGetLocation, onGetMessage }: ISate
         </div>
         <div className="col-md-6 mt-2">
           <button
+            id="getMessageButton"
             type="button"
             className="btn btn-outline-success fw-bold"
             data-bs-toggle="modal" 
