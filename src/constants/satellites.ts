@@ -4,7 +4,7 @@ import satellite from '../assets/images/satellite.jpg';
 
 export const SATELLITES: Array<ISatellite> = [
   {
-    name: 'Kenoby',
+    name: 'kenobi',
     x: -500,
     y: -200,
     distance: 100,
@@ -12,7 +12,7 @@ export const SATELLITES: Array<ISatellite> = [
     message: ['', 'este', 'es', 'un', 'mensaje'],
   },
   {
-    name: 'Skyewalker',
+    name: 'skywalker',
     x: 100,
     y: -100,
     distance: 115.5,
@@ -20,7 +20,7 @@ export const SATELLITES: Array<ISatellite> = [
     message: ['este', '', 'un', 'mensaje'],
   },
   {
-    name: 'Sato',
+    name: 'sato',
     x: 500,
     y: 100,
     distance: 142.7,

@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GalaxyService } from '../../services';
+import spacecraft from '../../assets/images/spacecraft.jpg';
 import './index.css';
 
+type TSpaceCraft = {
+  message: string;
+  position: {
+    x: number;
+    y: number;
+  }
+}
+
 const Spacecraft = (): React.ReactElement => {
+  const [findSpacecraft, setFindSpacecraft] = useState<TSpaceCraft>({ 
+    message: '',
+    position: {
+      x: 0,
+      y: 0,
+    }
+  }
+  ) 
   const data = {
     satellites: [{
         name: 'kenobi',
@@ -24,17 +41,30 @@ const Spacecraft = (): React.ReactElement => {
 
   const getTopSecret = () => {
     GalaxyService.getTopSecret(data).then( response => {
-      console.log(response)
+      setFindSpacecraft(response.data);
     }).catch( error => console.log(error))
   }
 
+  const { message, position } = findSpacecraft;
+
   return (
     <div className="container">
+      <h2 className="mb-3 text-center">This section only works with extension
+        <a href="https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/related">CORS unblock</a>
+      </h2>
       <button 
         className="shadow btn btn-outline-primary d-flex mx-auto fs-4"
         tabIndex={0}
         onClick={getTopSecret}
-      >Get Top Secret</button>    
+      >Get Top Secret
+      </button>
+      <img src={spacecraft} alt="spacecraft" width="200" className="spacecraft p-1"/>
+      {message !== '' && (
+        <>
+        <span className="d-flex">Position revelated spacecraft <strong> {`x: ${position.x} y: ${position.y}`}</strong></span>    
+        <span>Message revelated spacecraft: <strong>{message}</strong></span>
+        </>    
+      )}
     </div>
   )
 }
