@@ -34,20 +34,19 @@ const Satellites = (): React.ReactElement => {
       <h2 className="mb-3 text-center">This section only works with extension
         <a href="https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/related">CORS unblock</a>
       </h2>
-      {SATELLITES.map( ({name, image }: ISatellite)  => (
-        <React.Fragment key={name}>
+      {SATELLITES.map( ({name }: ISatellite)  => (
           <button 
-            className="shadow btn btn-outline-primary d-flex flex-row mx-auto fs-4 mb-5"
+            key={name}
+            className="shadow btn btn-outline-primary fs-4 mb-5 p-4 m-2"
             tabIndex={0}
             onClick={() => getSatellitePosition(name)}
           >{name}
           </button>
-          <img src={image} alt="satellite" width="200" className="p-1"/>
-          <span className="d-flex">Position revelated {name} <strong> {`x: ${position.x} y: ${position.y}`}</strong></span>     
-          <span >Message revelated spacecraft: <strong>{message}</strong></span>
-        </React.Fragment>    
         )
       )}
+      <img src={SATELLITES[0].image} alt="satellite" width="200" className="p-1"/>
+      <span className="d-flex">Position revelated: <strong> {`x: ${position.x} y: ${position.y}`}</strong></span>     
+      <span >Message revelated: <strong>{message}</strong></span>
     </div>
   )
 }
