@@ -49,6 +49,9 @@ const Spacecraft = (): React.ReactElement => {
 
   return (
     <div className="container">
+      <h2 className="mb-3 text-center">This section only works with extension
+        <a href="https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/related">CORS unblock</a>
+      </h2>
       <button 
         className="shadow btn btn-outline-primary d-flex mx-auto fs-4"
         tabIndex={0}
@@ -59,7 +62,7 @@ const Spacecraft = (): React.ReactElement => {
       {message !== '' && (
         <>
         <span className="d-flex">Position revelated spacecraft <strong> {`x: ${position.x} y: ${position.y}`}</strong></span>    
-        <span className="fw-bold">Message revelated spacecraft:<strong>{message}</strong></span>
+        <span>Message revelated spacecraft: <strong>{message}</strong></span>
         </>    
       )}
     </div>
