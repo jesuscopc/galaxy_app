@@ -1,32 +1,12 @@
 import React, { useState } from 'react';
 import { SATELLITES } from '../../constants';
-import { GalaxyService } from '../../services';
 import { ISatellite } from '../../interfaces';
-
-
-type TSatelliteData = {
-  message: Array<string>;
-  position: {
-    x:number;
-    y:number;
-  };
-}
+import UseGalaxyApiHook from '../../hooks/UseGalaxyApiHook';
 
 const Satellites = (): React.ReactElement => {
 
-  const [satelliteData, setSatelliteData] = useState<TSatelliteData>({
-    message: [],
-    position: {
-      x: 0,
-      y: 0
-    },
-  });
-  const getSatellitePosition = (satellite: string): void=> {
-    GalaxyService.getSatellitePosition(satellite).then( response => {
-      setSatelliteData(response);
-    }).catch( err => console.error(err));
-  }
-
+  const [nameSatellite, setNameSatellite ] = useState('');
+  const { data: satelliteData, error } = UseGalaxyApiHook({satellite: nameSatellite});
   const { message, position } = satelliteData;
 
   return (
@@ -39,7 +19,7 @@ const Satellites = (): React.ReactElement => {
             key={name}
             className="shadow btn btn-outline-primary fs-4 mb-5 p-4 m-2"
             tabIndex={0}
-            onClick={() => getSatellitePosition(name)}
+            onClick={() => setNameSatellite(name)}
           >{name}
           </button>
         )
@@ -47,6 +27,7 @@ const Satellites = (): React.ReactElement => {
       <img src={SATELLITES[0].image} alt="satellite" width="200" className="p-1"/>
       <span className="d-flex">Position revelated: <strong> {`x: ${position.x} y: ${position.y}`}</strong></span>     
       <span >Message revelated: <strong>{message}</strong></span>
+      {error && <span className="text-danger">Error to try get data use CORS unblock extension or restart services</span>}
     </div>
   )
 }
