@@ -6,7 +6,7 @@ import ModalResults from '../../components/ModalResults';
 import { ISatellite } from '../../interfaces';
 import './index.css';
 
-const Coordinates = (): React.ReactElement => {
+const Coordinates = React.memo((): React.ReactElement => {
   const [satellite, setSatellite] = useState<ISatellite>({
     name: '',
     distance: 0,
@@ -17,8 +17,8 @@ const Coordinates = (): React.ReactElement => {
   });
   const [infoType, setinfoType] = useState<'coordenate' | 'message'>('coordenate');
 
-  const getLocation = (distance: number): void => {
-    const res = SATELLITES.find(satellite => satellite.distance === distance);
+  const getLocation = (distance: string): void => {
+    const res = SATELLITES.find(satellite => satellite.distance === Number(distance));
     res && setSatellite(res);
     setinfoType('coordenate');
   }
@@ -46,6 +46,6 @@ const Coordinates = (): React.ReactElement => {
         {...satellite}/>
     </div>
   )
-}
+})
 
 export default Coordinates;

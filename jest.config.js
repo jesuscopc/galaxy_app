@@ -28,5 +28,6 @@ module.exports = {
     ],
     "coveragePathIgnorePatterns": [
       "src/index.tsx",
+      "src/interfaces/index.ts",
     ]
   }

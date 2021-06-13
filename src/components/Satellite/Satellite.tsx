@@ -7,8 +7,7 @@ interface ISatelliteExt extends ISatellite {
 }
 
 const Satellite = ({ name, image, distance, onGetLocation, onGetMessage }: ISatelliteExt): React.ReactElement => {
-
-  const [distanceValue, setDistanceValue] = useState<number>();
+  const [distanceValue, setDistanceValue] = useState<string>('');
 
   return (
     <div className="satellite p-2">
@@ -22,7 +21,7 @@ const Satellite = ({ name, image, distance, onGetLocation, onGetMessage }: ISate
             placeholder="100"
             className="form-control"
             value={distanceValue}
-            onChange={e => setDistanceValue(Number(e.currentTarget.value))}
+            onChange={e => setDistanceValue(e.currentTarget.value)}
             />
         </div>
         <div className="col-md-6 mt-2">

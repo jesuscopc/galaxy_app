@@ -3,6 +3,12 @@ This is a simple aplications that get the satelites positions
 
 Clone this proyect and run `npm i`
 
+## Requirements
+
+Its necessary have installed CORS unblock extension
+
+[CORS unblock](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/related)
+
 ## Live App at this url 
 
 [Galaxy App](https://galaxy-app-qpk82.ondigitalocean.app)
